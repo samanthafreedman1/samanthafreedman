@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samantha Freedman — PMM Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --warm-white: #FFFDF9;
+    --terracotta: #C4714A;
+    --terracotta-light: #F0D5C5;
+    --terracotta-pale: #FBF0EA;
+    --sage: #7A9E8E;
+    --sage-light: #D4E6DF;
+    --charcoal: #2C2C2C;
+    --mid: #6B6B6B;
+    --light: #9B9B9B;
+    --border: #EAE4DC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--charcoal);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-links {
+    display: flex; gap: 2.5rem; list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--mid);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--terracotta); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 4rem 4rem;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -10%; right: -5%;
+    width: 55%; height: 80%;
+    background: radial-gradient(ellipse at center, var(--terracotta-pale) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -5%; left: 5%;
+    width: 30%; height: 40%;
+    background: radial-gradient(ellipse at center, var(--sage-light) 0%, transparent 70%);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .hero-text { position: relative; z-index: 1; }
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem; height: 1px;
+    background: var(--terracotta);
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+    color: var(--charcoal);
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--mid);
+    margin-bottom: 2rem;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--mid);
+    max-width: 420px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+  .hero-ctas {
+    display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;
+  }
+  .btn-primary {
+    background: var(--terracotta);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #b05e38; transform: translateY(-1px); }
+  .btn-secondary {
+    color: var(--charcoal);
+    padding: 0.85rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--terracotta); color: var(--terracotta); }
+
+  .hero-visual {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .stat-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+  .stat-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .stat-card.accent {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+    color: white;
+  }
+  .stat-card.sage-card {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: white;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    opacity: 0.85;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  .company-bar {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--mid);
+  }
+  .company-dot {
+    width: 8px; height: 8px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 5rem 4rem; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 1.5rem; height: 1px;
+    background: var(--terracotta);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .section-subtitle {
+    color: var(--mid);
+    max-width: 560px;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--warm-white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .about-left { position: sticky; top: 6rem; }
+  .about-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--charcoal);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--terracotta);
+  }
+  .about-meta {
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+  .about-meta-item {
+    display: flex; align-items: center; gap: 0.7rem;
+    font-size: 0.85rem; color: var(--mid);
+  }
+  .about-meta-item::before {
+    content: ''; width: 5px; height: 5px;
+    background: var(--terracotta); border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .about-body p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--mid);
+    margin-bottom: 1.5rem;
+  }
+  .about-body p:last-child { margin-bottom: 0; }
+  .about-body strong { color: var(--charcoal); font-weight: 500; }
+  .skills-chips {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-top: 2rem;
+  }
+  .chip {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.78rem;
+    color: var(--mid);
+    background: var(--cream);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* PORTFOLIO */
+  #portfolio { background: var(--cream); }
+  .portfolio-inner { max-width: 1100px; margin: 0 auto; }
+
+  .portfolio-category { margin-bottom: 4rem; }
+  .category-header {
+    display: flex; align-items: baseline; gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .category-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+  .category-count {
+    font-size: 0.8rem;
+    color: var(--light);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  /* Landing pages — 3 col grid */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.4rem;
+    display: flex; flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none; color: inherit;
+    position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--terracotta-light);
+    transition: background 0.2s;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+  .card:hover::before { background: var(--terracotta); }
+  .card-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.7rem;
+    color: var(--charcoal);
+  }
+  .card-desc {
+    font-size: 0.85rem;
+    color: var(--mid);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+  .card-link {
+    font-size: 0.78rem;
+    color: var(--sage);
+    font-weight: 500;
+    display: flex; align-items: center; gap: 0.35rem;
+    text-decoration: none;
+    margin-top: auto;
+  }
+  .card-link:hover { color: var(--terracotta); }
+  .card-link::after { content: '↗'; font-size: 0.9em; }
+
+  /* Campaign cards — full width stacked */
+  .cards-list {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .card-row {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem 1.8rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .card-row::before {
+    content: '';
+    position: absolute; top: 0; left: 0; bottom: 0;
+    width: 3px;
+    background: var(--terracotta-light);
+    transition: background 0.2s;
+  }
+  .card-row:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+  .card-row:hover::before { background: var(--terracotta); }
+  .card-row-body .card-tag { margin-bottom: 0.4rem; }
+  .card-row-body .card-title { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .card-row-body .card-desc { margin-bottom: 0.7rem; }
+  .card-stat {
+    text-align: center;
+    background: var(--terracotta-pale);
+    border: 1px solid var(--terracotta-light);
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+  .card-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .card-stat-label {
+    font-size: 0.72rem;
+    color: var(--mid);
+    line-height: 1.3;
+  }
+
+  /* Sales Enablement — 2x2 */
+  .cards-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Impact bar */
+  .impact-bar {
+    background: var(--charcoal);
+    border-radius: 4px;
+    padding: 1.5rem 2rem;
+    display: flex; align-items: center; gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .impact-item { text-align: center; }
+  .impact-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--terracotta-light);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .impact-label {
+    font-size: 0.75rem;
+    color: var(--light);
+    line-height: 1.3;
+    max-width: 100px;
+  }
+  .impact-divider {
+    width: 1px; height: 2.5rem;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--charcoal);
+    color: white;
+    text-align: center;
+  }
+  #contact .section-label { color: var(--terracotta-light); justify-content: center; }
+  #contact .section-label::before { background: var(--terracotta-light); }
+  #contact .section-title { color: white; margin: 0 auto 1rem; }
+  #contact .section-subtitle { color: rgba(255,255,255,0.5); margin: 0 auto 2.5rem; }
+  .contact-links {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.85rem 1.8rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 2px;
+    text-decoration: none;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.85rem;
+    font-weight: 400;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-link:hover { border-color: var(--terracotta-light); color: var(--terracotta-light); }
+  .contact-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+  /* FOOTER */
+  footer {
+    background: #222;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.78rem;
+  }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 3rem; gap: 3rem; min-height: auto; }
+    .hero::before, .hero::after { display: none; }
+    section { padding: 3.5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-left { position: static; }
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .cards-2col { grid-template-columns: 1fr; }
+    .card-row { grid-template-columns: 1fr; gap: 1rem; }
+    .card-stat { text-align: left; }
+    .impact-bar { gap: 1.5rem; }
+    .impact-divider { display: none; }
+  }
+  @media (max-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .stat-cards { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Samantha Freedman</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#" class="nav-links" style="color:var(--terracotta);font-weight:500">Resume ↓</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text fade-up">
+    <div class="hero-eyebrow">Product Marketing Manager</div>
+    <h1 class="hero-name">Samantha<br><em>Freedman</em></h1>
+    <p class="hero-title">Fintech · B2B SaaS · Go-to-Market</p>
+    <p class="hero-desc">I translate complex financial products into clear value, build the assets that move deals forward, and own go-to-market from strategy through execution.</p>
+    <div class="hero-ctas">
+      <a href="#portfolio" class="btn-primary">See my work</a>
+      <a href="#contact" class="btn-secondary">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-visual fade-up" style="animation-delay:0.15s">
+    <div class="stat-cards">
+      <div class="stat-card accent">
+        <div class="stat-num">$400M+</div>
+        <div class="stat-label">Annual issuance on platform I marketed</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:var(--terracotta)">$5B+</div>
+        <div class="stat-label" style="color:var(--mid)">TAV from opportunities I enabled</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color:var(--terracotta)">12%</div>
+        <div class="stat-label" style="color:var(--mid)">Feature adoption at launch (140% of goal)</div>
+      </div>
+      <div class="stat-card sage-card">
+        <div class="stat-num">20K+</div>
+        <div class="stat-label">Merchants on the platform</div>
+      </div>
+    </div>
+    <div class="company-bar">
+      <div class="company-dot"></div>
+      <span>Currently: <strong>Wisetack</strong> — Series C fintech consumer lending · San Francisco</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-left fade-up">
+      <div class="section-label">About me</div>
+      <blockquote class="about-quote">"I'm the person who makes complicated things feel obvious."</blockquote>
+      <div class="about-meta">
+        <div class="about-meta-item">San Francisco, CA</div>
+        <div class="about-meta-item">Wisetack · Series C Fintech</div>
+        <div class="about-meta-item">4+ years in B2B SaaS & fintech</div>
+        <div class="about-meta-item">Washington University in St. Louis</div>
+      </div>
+    </div>
+    <div class="about-body fade-up">
+      <p>I'm a product marketer who lives at the intersection of <strong>complex financial products</strong> and the buyers who need them. My background is a bit unusual — I studied Psychology and Biology with a concentration in Marketing Psychology, which means I think a lot about <em>how</em> people make decisions, not just what they decide.</p>
+      <p>At <strong>Wisetack</strong>, I've owned go-to-market strategy for a standalone lending platform serving 20,000+ merchants. That's meant everything from writing the messaging frameworks and battlecards that help sales win deals, to personally building the feature launch pages, partner enablement playbooks, and email campaigns that activate and retain merchants.</p>
+      <p>I'm a builder. I don't just set strategy and hand things off — I'm the one writing the copy, running the A/B tests, and staying close to the data to know what's actually working. If you want someone who can think at the strategic level and still produce high-quality assets themselves, that's me.</p>
+      <div class="skills-chips">
+        <span class="chip">Positioning & Messaging</span>
+        <span class="chip">Sales Enablement</span>
+        <span class="chip">Product Launches</span>
+        <span class="chip">Go-to-Market Strategy</span>
+        <span class="chip">Competitive Intelligence</span>
+        <span class="chip">A/B Testing</span>
+        <span class="chip">Partner Marketing</span>
+        <span class="chip">SEO Content</span>
+        <span class="chip">HubSpot · Salesforce</span>
+        <span class="chip">Figma · Webflow</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-inner">
+    <div class="section-label fade-up">Selected work</div>
+    <h2 class="section-title fade-up">Things I've built</h2>
+    <p class="section-subtitle fade-up">All pieces below are live work from my time at Wisetack. Click any card to visit the page.</p>
+
+    <!-- LANDING PAGES -->
+    <div class="portfolio-category fade-up">
+      <div class="category-header">
+        <span class="category-name">Landing Pages</span>
+        <span class="category-count">9 live pages</span>
+      </div>
+      <div class="cards-grid">
+
+        <a class="card" href="https://www.wisetack.com/merchants/home-services" target="_blank" rel="noopener">
+          <div class="card-tag">Highest Traffic Page</div>
+          <div class="card-title">Home Services Landing Page</div>
+          <div class="card-desc">Core value props for merchants in our main vertical — highest trafficked page on the site.</div>
+          <span class="card-link">wisetack.com</span>
+        </a>
+
+        <a class="card" href="https://www.wisetack.com/features/hs-0-apr-add-ons" target="_blank" rel="noopener">
+          <div class="card-tag">12% adoption · 140% of goal</div>
+          <div class="card-title">Extended 0% APR Feature Guide</div>
+          <div class="card-desc">Fee breakdowns, data on plan importance, social proof, and FAQs for extended APR offerings.</div>
+          <span class="card-link">wisetack.com</span>
+        </a>
+
+        <a class="card" href="https://www.wisetack.com/features/prequal-link" target="_blank" rel="noopener">
+          <div class="card-tag">Activation & Education</div>
+          <div class="card-title">Prequal Feature Guide (General)</div>
+          <div class="card-desc">Effectiveness data, step-by-step process overview, and placement ideas to help merchants generate leads.</div>
+          <span class="card-link">wisetack.com</span>
+        </a>
+
+        <a class="card" href="https://www.wisetack.com/features/prequal-link/fieldroutes" target="_blank" rel="noopener">
+          <div class="card-tag">Partner Enablement</div>
+          <div class="card-title">Prequal Guide (CRM-Specific)</div>
+          <div class="card-desc">Loom walkthroughs showing exactly how to embed Wisetack into merchant CRMs for unintegrated partners.</div>
+          <span class="card-link">wisetack.com</span>
+        </a>
+
+        <a class="card" href="https://learn.wisetack.com/prequalupgrade" target="_blank" rel="noopener">
+          <div class="card-tag">Product Launch</div>
+          <div class="card-title">Prequal-to-Loan Beta Page</div>
+          <div class="card-desc">Launch page for beta feature letting borrowers continue to a loan app after prequalifying — messaging evolved through GA.</div>
+          <span class="card-link">learn.wisetack.com</span>
+        </a>
+
+        <a class="card" href="https://www.wisetack.com/marketing-toolkit/hs" target="_blank" rel="noopener">
+          <div class="card-tag">Merchant Activation</div>
+          <div class="card-title">Marketing Toolkit</div>
+          <div class="card-desc">Compliant website copy, email templates, print shop access, and step-by-step instructions for promoting Wisetack financing.</div>
+          <span class="card-link">wisetack.com</span>
+        </a>
+
+        <a class="card" href="https://www.wisetack.com/resources/home-services" target="_blank" rel="noopener">
+          <div class="card-tag">Activation Hub</div>
+          <div class="card-title">Resource Hub</div>
+          <div class="card-desc">Curated hub surfacing key features and tools to drive merchants to their first transaction.</div>
+          <span class="card-link">wisetack.com</span>
+        </a>
+
+        <a class="card" href="https://www.wisetack.com/franchises" target="_blank" rel="noopener">
+          <div class="card-tag">Segment Positioning</div>
+          <div class="card-title">Franchise Landing Page</div>
+          <div class="card-desc">Tailored value proposition for franchise operators and multi-location businesses.</div>
+          <span class="card-link">wisetack.com</span>
+        </a>
+
+        <a class="card" href="https://www.wisetack.com/partnerships" target="_blank" rel="noopener">
+          <div class="card-tag">B2B / Partnerships</div>
+          <div class="card-title">Partner Landing Page</div>
+          <div class="card-desc">Articulates the value of embedding consumer financing into software to increase stickiness and generate revenue.</div>
+          <span class="card-link">wisetack.com</span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- CAMPAIGNS -->
+    <div class="portfolio-category fade-up">
+      <div class="category-header">
+        <span class="category-name">Campaigns</span>
+        <span class="category-count">3 campaigns</span>
+      </div>
+      <div class="cards-list">
+
+        <div class="card-row">
+          <div class="card-row-body">
+            <div class="card-tag">Referral Program</div>
+            <div class="card-title">Merchant Referral Program</div>
+            <div class="card-desc">Built end-to-end from scratch to generate SDR leads — incentive structure, enrollment flow, and tracking mechanics all designed and owned. 46% adoption rate, 103% of enrollment goal.</div>
+            <a href="https://learn.wisetack.com/referrals" target="_blank" rel="noopener" class="card-link">learn.wisetack.com/referrals</a>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-num">~$80M</div>
+            <div class="card-stat-label">total addressable volume</div>
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div class="card-row-body">
+            <div class="card-tag">Social Campaign</div>
+            <div class="card-title">#TheWisetackWay</div>
+            <div class="card-desc">Created and ran a merchant activation social campaign to drive engagement, incentivize usage, and build brand awareness — campaign mechanics, creative direction, and landing page all owned.</div>
+            <a href="https://www.wisetack.com/the-wisetack-way" target="_blank" rel="noopener" class="card-link">wisetack.com/the-wisetack-way</a>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-num">3-in-1</div>
+            <div class="card-stat-label">enrollment, activation & awareness</div>
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div class="card-row-body">
+            <div class="card-tag">Bi-Annual Sweepstakes</div>
+            <div class="card-title">Merchant Promotions (×2)</div>
+            <div class="card-desc">Led two bi-annual merchant sweepstakes from strategy and campaign brief through creative, targeting, and performance tracking.</div>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-num">2–5×</div>
+            <div class="card-stat-label">issuance lift during each promotion</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BLOG & CONTENT -->
+    <div class="portfolio-category fade-up">
+      <div class="category-header">
+        <span class="category-name">Blog & Content</span>
+        <span class="category-count">3 pieces</span>
+      </div>
+      <div class="cards-list">
+
+        <div class="card-row">
+          <div class="card-row-body">
+            <div class="card-tag">SEO / Brand Awareness</div>
+            <div class="card-title">5 Ways to Get the Most Out of Consumer Financing</div>
+            <div class="card-desc">Merchant-focused thought leadership targeting organic search traffic, surfacing Wisetack's value within a buying-intent context.</div>
+            <a href="https://www.wisetack.com/blog/5-ways-to-get-the-most-out-of-consumer-financing" target="_blank" rel="noopener" class="card-link">Read article</a>
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div class="card-row-body">
+            <div class="card-tag">SEO / Brand Awareness</div>
+            <div class="card-title">5 Easy Website Additions to Boost Conversion Rates</div>
+            <div class="card-desc">Practical content for small business owners tying website optimization tips back to financing as a conversion tool.</div>
+            <a href="https://www.wisetack.com/blog/5-easy-website-additions-to-boost-conversion-rates" target="_blank" rel="noopener" class="card-link">Read article</a>
+          </div>
+        </div>
+
+        <div class="card-row">
+          <div class="card-row-body">
+            <div class="card-tag">Case Study</div>
+            <div class="card-title">ServiceUp: Eliminating Risk, Increasing Sales, and Satisfying Customers</div>
+            <div class="card-desc">Customer story highlighting measurable business outcomes from using Wisetack — built for sales enablement and bottom-funnel conversion.</div>
+            <a href="https://www.wisetack.com/blog/serviceup-wisetack-eliminating-risk-increasing-sales-and-satisfying-customers" target="_blank" rel="noopener" class="card-link">Read case study</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="impact-bar" style="margin-top:1rem">
+        <div class="impact-item">
+          <div class="impact-num">12%</div>
+          <div class="impact-label">organic traffic increase in 3 weeks</div>
+        </div>
+        <div class="impact-divider"></div>
+        <div class="impact-item">
+          <div class="impact-num">24%</div>
+          <div class="impact-label">boost in MQL conversion</div>
+        </div>
+        <div class="impact-divider"></div>
+        <div class="impact-item" style="max-width:280px">
+          <div class="impact-label" style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5">From a blog strategy pivot — reversed an SEO ranking decline within 3 weeks by changing content approach and publishing intent-aligned pieces.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SALES ENABLEMENT -->
+    <div class="portfolio-category fade-up">
+      <div class="category-header">
+        <span class="category-name">Sales Enablement</span>
+        <span class="category-count">Not publicly linkable — context below</span>
+      </div>
+      <div class="cards-2col">
+        <div class="card" style="pointer-events:none">
+          <div class="card-tag">Competitive Intelligence</div>
+          <div class="card-title">Battlecards</div>
+          <div class="card-desc">Built for the enterprise sales team and SDR-led cold outbound — covering objection handling, competitor positioning, and differentiation by segment.</div>
+        </div>
+        <div class="card" style="pointer-events:none">
+          <div class="card-tag">Product Launch</div>
+          <div class="card-title">GTM Decks</div>
+          <div class="card-desc">Go-to-market presentation materials for feature launches and sales plays, translating product capability into buyer-ready messaging.</div>
+        </div>
+        <div class="card" style="pointer-events:none">
+          <div class="card-tag">Sales Readiness</div>
+          <div class="card-title">Objection Handling Collateral</div>
+          <div class="card-desc">Scripts and frameworks helping reps navigate common objections throughout the enterprise sales process.</div>
+        </div>
+        <div class="card" style="pointer-events:none">
+          <div class="card-tag">Partner Enablement</div>
+          <div class="card-title">API Partner Playbooks</div>
+          <div class="card-desc">Out-of-the-box marketing playbooks for B2B SaaS platforms integrating Wisetack via API — accelerated partner launches and drove 30% more monthly merchant signups.</div>
+        </div>
+      </div>
+      <div class="impact-bar">
+        <div class="impact-item">
+          <div class="impact-num">$5B+</div>
+          <div class="impact-label">TAV from closed opportunities</div>
+        </div>
+        <div class="impact-divider"></div>
+        <div class="impact-item">
+          <div class="impact-num">30%</div>
+          <div class="impact-label">more merchant signups per partner</div>
+        </div>
+        <div class="impact-divider"></div>
+        <div class="impact-item" style="max-width:280px">
+          <div class="impact-label" style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5">These assets aren't publicly shareable, but I'm happy to walk through them in a conversation — reach out below.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Say hello</div>
+  <h2 class="section-title">Let's work together</h2>
+  <p class="section-subtitle">Open to new opportunities in product marketing — especially fintech, financial services, or enterprise SaaS.</p>
+  <div class="contact-links">
+    <a href="mailto:Samantha.freedman1@gmail.com" class="contact-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      Samantha.freedman1@gmail.com
+    </a>
+    <a href="https://linkedin.com/in/samanthafreedman" target="_blank" rel="noopener" class="contact-link">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="#" class="contact-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      Download Resume
+    </a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Samantha Freedman · San Francisco, CA
+</footer>
+
+<script>
+  // Fade-up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Stagger hero elements on load
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.hero .fade-up').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 150);
+    });
+  });
+</script>
+</body>
+</html>
