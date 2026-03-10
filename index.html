@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Samantha Freedman — PMM Portfolio</title>
+<title>Samantha Freedman | PMM Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -23,9 +23,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
   body {
     background: var(--cream);
     color: var(--charcoal);
@@ -475,6 +473,48 @@
     background: rgba(255,255,255,0.1);
   }
 
+  /* HELP CENTER SECTION */
+  .help-center-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .hc-card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.4rem;
+    display: flex; flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none; color: inherit;
+    position: relative; overflow: hidden;
+  }
+  .hc-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--sage-light);
+    transition: background 0.2s;
+  }
+  .hc-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+  .hc-card:hover::before { background: var(--sage); }
+  .hc-card .card-link { color: var(--sage); }
+  .hc-card .card-link:hover { color: var(--terracotta); }
+
+  /* Writing context banner */
+  .writing-context {
+    background: var(--sage-light);
+    border: 1px solid #b8d8ce;
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: #3d6b5a;
+    line-height: 1.6;
+  }
+  .writing-context strong { color: #2a5042; }
+
   /* CONTACT */
   #contact {
     background: var(--charcoal);
@@ -536,11 +576,13 @@
     .card-stat { text-align: left; }
     .impact-bar { gap: 1.5rem; }
     .impact-divider { display: none; }
+    .help-center-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 600px) {
     .cards-grid { grid-template-columns: 1fr; }
     .stat-cards { grid-template-columns: 1fr 1fr; }
     .nav-links { display: none; }
+    .help-center-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -590,7 +632,7 @@
     </div>
     <div class="company-bar">
       <div class="company-dot"></div>
-      <span>Currently: <strong>Wisetack</strong> — Series C fintech · 4 years · 70 to 150+ employees</span>
+      <span>Currently: <strong>Wisetack</strong> · Series C fintech · 4 years · 70 to 150+ employees</span>
     </div>
   </div>
 </section>
@@ -604,7 +646,7 @@
       <div class="about-meta">
         <div class="about-meta-item">San Francisco, CA</div>
         <div class="about-meta-item">Wisetack · Series C Fintech</div>
-        <div class="about-meta-item">4+ years in B2B SaaS & fintech</div>
+        <div class="about-meta-item">4+ years in B2B SaaS &amp; fintech</div>
         <div class="about-meta-item">Washington University in St. Louis</div>
       </div>
     </div>
@@ -613,13 +655,14 @@
       <p>At <strong>Wisetack</strong>, I've owned go-to-market strategy for a standalone lending platform serving 20,000+ merchants generating over $400M in annual issuance. That's meant writing the messaging frameworks and battlecards that help enterprise sales win, building feature launch pages and partner enablement playbooks, running the data analysis that shapes positioning, and leading customer research that influenced the product roadmap directly.</p>
       <p>I'm a builder who doesn't hand things off. I write the copy, run the A/B tests, sit in on sales calls, dig into support tickets, and bring insights back to product before they become problems. I've grown from digital and growth marketing into a full-stack PMM, which means I understand the entire funnel, not just my slice of it.</p>
       <div class="skills-chips">
-        <span class="chip">Positioning & Messaging</span>
+        <span class="chip">Positioning &amp; Messaging</span>
         <span class="chip">Sales Enablement</span>
         <span class="chip">Product Launches</span>
         <span class="chip">Go-to-Market Strategy</span>
         <span class="chip">Competitive Intelligence</span>
         <span class="chip">A/B Testing</span>
         <span class="chip">Partner Marketing</span>
+        <span class="chip">Technical Writing</span>
         <span class="chip">SEO Content</span>
         <span class="chip">HubSpot · Salesforce</span>
         <span class="chip">Figma · Webflow</span>
@@ -646,7 +689,7 @@
         <a class="card" href="https://www.wisetack.com/merchants/home-services" target="_blank" rel="noopener">
           <div class="card-tag">Highest Traffic Page</div>
           <div class="card-title">Home Services Landing Page</div>
-          <div class="card-desc">Core value props for merchants in our main vertical — highest trafficked page on the site.</div>
+          <div class="card-desc">Core value props for merchants in our main vertical. The highest-trafficked page on the site.</div>
           <span class="card-link">wisetack.com</span>
         </a>
 
@@ -658,7 +701,7 @@
         </a>
 
         <a class="card" href="https://www.wisetack.com/features/prequal-link" target="_blank" rel="noopener">
-          <div class="card-tag">Activation & Education</div>
+          <div class="card-tag">Activation &amp; Education</div>
           <div class="card-title">Prequal Feature Guide (General)</div>
           <div class="card-desc">Effectiveness data, step-by-step process overview, and placement ideas to help merchants use the Prequal feature to generate leads.</div>
           <span class="card-link">wisetack.com</span>
@@ -667,7 +710,7 @@
         <a class="card" href="https://www.wisetack.com/features/prequal-link/fieldroutes" target="_blank" rel="noopener">
           <div class="card-tag">Partner Enablement</div>
           <div class="card-title">Prequal Guide (CRM-Specific)</div>
-          <div class="card-desc">Guide on embedding Wisetack into merchant CRMs, inlcuding product instructions and loom walkthroughs.</div>
+          <div class="card-desc">Guide on embedding Wisetack into merchant CRMs, including product instructions and loom walkthroughs.</div>
           <span class="card-link">wisetack.com</span>
         </a>
 
@@ -709,6 +752,65 @@
       </div>
     </div>
 
+    <!-- HELP CENTER & TECHNICAL WRITING -->
+    <div class="portfolio-category fade-up">
+      <div class="category-header">
+        <span class="category-name">Help Center &amp; Technical Writing</span>
+        <span class="category-count">5 articles + 1 blog guide</span>
+      </div>
+      <div class="writing-context">
+        <strong>Why this matters:</strong> These pieces show a core PMM skill that often goes unrecognized: taking technically complex product behavior and making it immediately actionable for a non-technical audience. Each article below was written to reduce support load, improve feature adoption, and give merchants the clarity they need to use the product confidently.
+      </div>
+      <div class="help-center-grid">
+
+        <a class="hc-card" href="https://support.wisetack.com/hc/en-us/articles/8500442594331-Can-I-offer-0-APR-financing-options" target="_blank" rel="noopener">
+          <div class="card-tag">Help Center · Pricing &amp; Features</div>
+          <div class="card-title">Can I Offer 0% APR Financing Options?</div>
+          <div class="card-desc">Explains the extended 0% APR add-on structure, how fee tiers work, and when merchants should use them. Turns a nuanced pricing model into a clear merchant decision framework.</div>
+          <span class="card-link">support.wisetack.com</span>
+        </a>
+
+        <a class="hc-card" href="https://support.wisetack.com/hc/en-us/articles/6806990649499-How-do-I-adjust-the-amount-that-my-customer-is-applying-for" target="_blank" rel="noopener">
+          <div class="card-tag">Help Center · Scope Change</div>
+          <div class="card-title">How Do I Adjust the Amount My Customer Is Applying For?</div>
+          <div class="card-desc">Addresses one of the most common and high-friction merchant pain points: scope changes mid-transaction. Reduces support escalations by walking through every scenario step by step.</div>
+          <span class="card-link">support.wisetack.com</span>
+        </a>
+
+        <a class="hc-card" href="https://support.wisetack.com/hc/en-us/articles/29265123372699-Merchant-portal-user-roles" target="_blank" rel="noopener">
+          <div class="card-tag">Help Center · Portal Permissions</div>
+          <div class="card-title">Merchant Portal User Roles</div>
+          <div class="card-desc">Breaks down permission levels for each user type in the merchant portal. Written to serve both the business owner setting up access and the team member navigating their own view.</div>
+          <span class="card-link">support.wisetack.com</span>
+        </a>
+
+        <a class="hc-card" href="https://support.wisetack.com/hc/en-us/articles/29370744202011-Merchant-portal-application-statuses" target="_blank" rel="noopener">
+          <div class="card-tag">Help Center · Portal Navigation</div>
+          <div class="card-title">Merchant Portal Application Statuses</div>
+          <div class="card-desc">Defines every application status a merchant might see, what each means in the loan lifecycle, and what action (if any) is required. A reference guide built to eliminate confusion and reduce inbound tickets.</div>
+          <span class="card-link">support.wisetack.com</span>
+        </a>
+
+        <a class="hc-card" href="https://www.wisetack.com/blog/prequal-tagging-guide" target="_blank" rel="noopener">
+          <div class="card-tag">Blog · Attribution &amp; Analytics</div>
+          <div class="card-title">Track Your Leads: A Simple Guide to Tagging Prequal Links</div>
+          <div class="card-desc">Teaches merchants how to use UTM-style source tagging on their prequal links so they can see exactly where leads come from. Translates a marketing analytics concept into a plain-language step-by-step guide for small business owners with no technical background.</div>
+          <span class="card-link">wisetack.com</span>
+        </a>
+
+      </div>
+      <div class="impact-bar">
+        <div class="impact-item">
+          <div class="impact-num">~25%</div>
+          <div class="impact-label">reduction in monthly support tickets</div>
+        </div>
+        <div class="impact-divider"></div>
+        <div class="impact-item" style="max-width:320px">
+          <div class="impact-label" style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5">Directed a full overhaul of the customer knowledge base, delivering hundreds of new articles, in-product guides, and interactive demos that reduced monthly support volume by approximately 25%.</div>
+        </div>
+      </div>
+    </div>
+
     <!-- CAMPAIGNS -->
     <div class="portfolio-category fade-up">
       <div class="category-header">
@@ -721,7 +823,7 @@
           <div class="card-row-body">
             <div class="card-tag">Referral Program</div>
             <div class="card-title">Merchant Referral Program</div>
-            <div class="card-desc">Built end-to-end from scratch to generate new merchant leads — incentive structure, enrollment flow, and tracking mechanics all designed and owned. 46% adoption rate to targeted segment, 103% of enrollment goal.</div>
+            <div class="card-desc">Built end-to-end from scratch to generate new merchant leads. Incentive structure, enrollment flow, and tracking mechanics all designed and owned. 46% adoption rate to targeted segment, 103% of enrollment goal.</div>
             <a href="https://learn.wisetack.com/referrals" target="_blank" rel="noopener" class="card-link">learn.wisetack.com/referrals</a>
           </div>
           <div class="card-stat">
@@ -734,12 +836,12 @@
           <div class="card-row-body">
             <div class="card-tag">Social Campaign</div>
             <div class="card-title">#TheWisetackWay</div>
-            <div class="card-desc">Created and ran a merchant activation social campaign to drive engagement, incentivize usage, and build brand awareness — campaign mechanics, creative direction, and landing page all owned.</div>
+            <div class="card-desc">Created and ran a merchant activation social campaign to drive engagement, incentivize usage, and build brand awareness. Campaign mechanics, creative direction, and landing page all owned.</div>
             <a href="https://www.wisetack.com/the-wisetack-way" target="_blank" rel="noopener" class="card-link">wisetack.com/the-wisetack-way</a>
           </div>
           <div class="card-stat">
             <div class="card-stat-num">3-in-1</div>
-            <div class="card-stat-label">enrollment, activation & awareness</div>
+            <div class="card-stat-label">enrollment, activation &amp; awareness</div>
           </div>
         </div>
 
@@ -761,7 +863,7 @@
     <!-- BLOG & CONTENT -->
     <div class="portfolio-category fade-up">
       <div class="category-header">
-        <span class="category-name">Blog & Content</span>
+        <span class="category-name">Blog &amp; Content</span>
         <span class="category-count">3 pieces</span>
       </div>
       <div class="cards-list">
@@ -788,7 +890,7 @@
           <div class="card-row-body">
             <div class="card-tag">Case Study</div>
             <div class="card-title">ServiceUp: Eliminating Risk, Increasing Sales, and Satisfying Customers</div>
-            <div class="card-desc">Customer story highlighting measurable business outcomes from using Wisetack — built for sales enablement and bottom-funnel conversion.</div>
+            <div class="card-desc">Customer story highlighting measurable business outcomes from using Wisetack. Built for sales enablement and bottom-funnel conversion.</div>
             <a href="https://www.wisetack.com/blog/serviceup-wisetack-eliminating-risk-increasing-sales-and-satisfying-customers" target="_blank" rel="noopener" class="card-link">Read case study</a>
           </div>
         </div>
@@ -806,7 +908,7 @@
         </div>
         <div class="impact-divider"></div>
         <div class="impact-item" style="max-width:280px">
-          <div class="impact-label" style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5">From a blog strategy pivot — reversed an SEO ranking decline within 3 weeks by changing content approach and publishing intent-aligned pieces.</div>
+          <div class="impact-label" style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5">From a blog strategy pivot: reversed an SEO ranking decline within 3 weeks by changing content approach and publishing intent-aligned pieces.</div>
         </div>
       </div>
     </div>
@@ -815,13 +917,13 @@
     <div class="portfolio-category fade-up">
       <div class="category-header">
         <span class="category-name">Sales Enablement</span>
-        <span class="category-count">Not publicly linkable — context below</span>
+        <span class="category-count">Not publicly linkable · context below</span>
       </div>
       <div class="cards-2col">
         <div class="card" style="pointer-events:none">
           <div class="card-tag">Competitive Intelligence</div>
           <div class="card-title">Battlecards</div>
-          <div class="card-desc">Built for the enterprise sales team and SDR-led cold outbound — covering objection handling, competitor positioning, and differentiation by segment.</div>
+          <div class="card-desc">Built for the enterprise sales team and SDR-led cold outbound. Covering objection handling, competitor positioning, and differentiation by segment.</div>
         </div>
         <div class="card" style="pointer-events:none">
           <div class="card-tag">Product Launch</div>
@@ -836,13 +938,13 @@
         <div class="card" style="pointer-events:none">
           <div class="card-tag">Partner Enablement</div>
           <div class="card-title">API Partner Playbooks</div>
-          <div class="card-desc">Out-of-the-box marketing playbooks for B2B SaaS platforms integrating Wisetack via API — accelerated partner launches and drove 30% more monthly merchant signups.</div>
+          <div class="card-desc">Out-of-the-box marketing playbooks for B2B SaaS platforms integrating Wisetack via API. Accelerated partner launches and drove 30% more monthly merchant signups.</div>
         </div>
       </div>
       <div class="impact-bar">
         <div class="impact-item">
-          <div class="impact-num">$5B+</div>
-          <div class="impact-label">TAV from closed opportunities</div>
+          <div class="impact-num">25%+</div>
+          <div class="impact-label">Reduction in support tickets since implementing collateral</div>
         </div>
         <div class="impact-divider"></div>
         <div class="impact-item">
@@ -851,7 +953,7 @@
         </div>
         <div class="impact-divider"></div>
         <div class="impact-item" style="max-width:280px">
-          <div class="impact-label" style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5">These assets aren't publicly shareable, but I'm happy to walk through them in a conversation — reach out below.</div>
+          <div class="impact-label" style="color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.5">These assets aren't publicly shareable, but I'm happy to walk through them in a conversation. Reach out below.</div>
         </div>
       </div>
     </div>
@@ -881,7 +983,7 @@
 </section>
 
 <footer>
-  © 2026 Samantha Freedman · San Francisco, CA
+  &copy; 2026 Samantha Freedman · San Francisco, CA
 </footer>
 
 <script>
